@@ -49,8 +49,9 @@ description: "Task list template for feature implementation"
 **Purpose**: Project initialization and basic structure
 
 - [ ] T001 Create project structure per implementation plan
-- [ ] T002 Initialize [language] project with [framework] dependencies
-- [ ] T003 [P] Configure linting and formatting tools
+- [ ] T002 Initialize Next.js 15 project with TypeScript (strict mode)
+- [ ] T003 [P] Configure Tailwind CSS and design tokens
+- [ ] T004 [P] Configure ESLint (strict) and Prettier
 
 ---
 
@@ -60,14 +61,11 @@ description: "Task list template for feature implementation"
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-Examples of foundational tasks (adjust based on your project):
-
-- [ ] T004 Setup database schema and migrations framework
-- [ ] T005 [P] Implement authentication/authorization framework
-- [ ] T006 [P] Setup API routing and middleware structure
-- [ ] T007 Create base models/entities that all stories depend on
-- [ ] T008 Configure error handling and logging infrastructure
-- [ ] T009 Setup environment configuration management
+- [ ] T005 Setup Zod schemas for core data entities
+- [ ] T006 Implement base Server Actions with `useActionState` pattern
+- [ ] T007 Configure database connection/migrations (if applicable)
+- [ ] T008 Setup shared RSC layouts and root error boundaries
+- [ ] T009 [P] Configure Automated Quality Gates (Unit/E2E test runners)
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 

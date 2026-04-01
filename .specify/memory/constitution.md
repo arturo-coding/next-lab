@@ -1,50 +1,64 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!-- 
+Sync Impact Report:
+- Version change: [CONSTITUTION_VERSION] -> 1.0.0
+- Added Principles: 
+    - I. Server-First Architecture (RSC)
+    - II. Official Next.js 15 Standards
+    - III. Utility-First Styling (Tailwind CSS)
+    - IV. Mandatory Type-Safe Correctness (TypeScript + Zod)
+    - V. Simplified Foundations & Educational Clarity
+- Added Sections: Technology Stack, Development Workflow, Governance
+- Templates requiring updates: 
+    - ✅ .specify/templates/plan-template.md (Updated Constitution Check section)
+    - ✅ .specify/templates/spec-template.md (Verified alignment with Spec-Driven requirement)
+    - ✅ .specify/templates/tasks-template.md (Updated Phase 1 & 2 sample tasks for RSC/Zod/Next.js)
+-->
+
+# next-lab Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Server-First Architecture (RSC)
+Favor React Server Components (RSC) by default for all data-fetching and logic. Only use 'use client' for interactive elements or client-only side effects. Fetch data directly in Server Components to minimize client-side JavaScript and improve performance. Rationale: Superior TTFB and reduced client-side overhead.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Official Next.js 15 Standards
+Adhere strictly to the official Next.js 15 documentation. Use the App Router exclusively. Always prefer built-in components and features: `<Image>`, `<Link>`, `<Script>`, and the new React 19 `<Form>` component. Utilize Partial Prerendering (PPR) and Streaming. Rationale: Future-proof architecture and built-in performance optimizations.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Utility-First Styling (Tailwind CSS)
+Use Tailwind CSS for all styling and layout. Avoid custom CSS files unless absolutely necessary for complex animations or third-party integrations. Maintain a clean, consistent design system by using predefined tokens. Rationale: Design consistency and minimal CSS bundle size.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Mandatory Type-Safe Correctness
+Every file MUST be written in TypeScript with no 'any' types. Use Zod for all runtime schema validation, including API responses, database queries, and Server Action inputs. All core logic must be unit-testable. Rationale: Prevents runtime errors and improves developer experience through self-documenting code.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Simplified Foundations & Educational Clarity
+Keep the code structure flat and intuitive. Components should be small, focused, and reusable. Prefer Server Actions and the 'useActionState' hook for mutations. Document complex logic with clear explanations. Rationale: Ease of learning, maintenance, and debugging.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Technology Stack
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+The stack is non-negotiable for this project to ensure consistency and performance:
+- **Framework**: Next.js 15 (App Router)
+- **Language**: TypeScript (Strict mode)
+- **Styling**: Tailwind CSS
+- **Validation**: Zod
+- **Mutations**: Server Actions + useActionState
+- **Infrastructure**: Vercel (preferred for PPR and Edge functions)
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Development Workflow
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### I. Spec-Driven Implementation
+No feature development starts without a corresponding `spec.md` and `plan.md`. The spec defines WHAT, the plan defines HOW.
+
+### II. Task-First Execution
+All implementation work must be tracked in `tasks.md`. Tasks should be granular enough to be completed in one session and must include clear acceptance criteria.
+
+### III. Automated Quality Gates
+Every PR or major change must pass:
+1. TypeScript Linting/Checking
+2. Unit tests for logic
+3. E2E tests for critical user flows
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution is the supreme authority for development practices in `next-lab`. Any deviation must be explicitly justified. Amendments require a version bump and updates to all dependent templates.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-03-30 | **Last Amended**: 2026-04-01

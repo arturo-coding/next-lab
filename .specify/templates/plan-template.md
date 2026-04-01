@@ -31,7 +31,11 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- [ ] I. Server-First Architecture (RSC) usage
+- [ ] II. Next.js 15 Official Standards compliance
+- [ ] III. Utility-First Styling (Tailwind) alignment
+- [ ] IV. Type-Safe Correctness (TypeScript + Zod)
+- [ ] V. Educational Clarity & Foundation Simplicity
 
 ## Project Structure
 
