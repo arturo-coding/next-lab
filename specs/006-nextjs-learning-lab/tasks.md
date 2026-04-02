@@ -17,10 +17,10 @@
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Initialize Next.js 15 project with TypeScript (strict mode) and Tailwind CSS
-- [ ] T002 [P] Install core dependencies: `zod`, `react-resizable-panels`, `shiki`, `lucide-react`
-- [ ] T003 [P] Configure global styles and Tailwind design tokens in `src/app/globals.css`
-- [ ] T004 Setup basic directory structure: `src/app`, `src/components`, `src/lib`, `src/content`
+- [x] T001 Initialize Next.js 15 project with TypeScript (strict mode) and Tailwind CSS
+- [x] T002 [P] Install core dependencies: `zod`, `react-resizable-panels`, `shiki`, `lucide-react`
+- [x] T003 [P] Configure global styles and Tailwind design tokens in `src/app/globals.css`
+- [x] T004 Setup basic directory structure: `src/app`, `src/components`, `src/lib`, `src/content`
 
 ---
 
@@ -30,10 +30,10 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T005 [P] Create Zod schemas for Section, Lesson, and Progress in `src/lib/schemas.ts`
-- [ ] T006 Implement content loader utility to parse MDX/Markdown in `src/lib/content-loader.ts`
+- [x] T005 [P] Create Zod schemas for Section, Lesson, and Progress in `src/lib/schemas.ts`
+- [x] T006 Implement content loader utility to parse MDX/Markdown in `src/lib/content-loader.ts`
 - [ ] T007 Create root layout with a responsive container in `src/app/layout.tsx`
-- [ ] T008 [P] Configure Shiki highlighter instance in `src/lib/shiki-config.ts`
+- [x] T008 [P] Configure Shiki highlighter instance in `src/lib/shiki-config.ts`
 
 **Checkpoint**: Foundation ready - user story implementation can now begin
 
@@ -45,10 +45,10 @@
 
 **Independent Test**: Sidebar displays all sections/lessons from `src/content`, and clicking one navigates to the correct URL.
 
-- [ ] T009 [P] [US1] Create sample lesson content files in `src/content/lessons/routing/linking.md` and `src/content/lessons/data-fetching/fetching.md`
-- [ ] T010 [US1] Implement `Sidebar` component (RSC) to fetch and display navigation in `src/components/Sidebar.tsx`
-- [ ] T011 [US1] Setup dynamic route segment for lessons in `src/app/lessons/[section]/[lesson]/page.tsx`
-- [ ] T012 [US1] Integrate `Sidebar` into the main layout in `src/app/layout.tsx`
+- [x] T009 [P] [US1] Create sample lesson content files in `src/content/lessons/routing/linking.md` and `src/content/lessons/data-fetching/fetching.md`
+- [x] T010 [US1] Implement `Sidebar` component (RSC) to fetch and display navigation in `src/components/Sidebar.tsx`
+- [x] T011 [US1] Setup dynamic route segment for lessons in `src/app/lessons/[section]/[lesson]/page.tsx`
+- [x] T012 [US1] Integrate `Sidebar` into the main layout in `src/app/layout.tsx`
 
 **Checkpoint**: User Story 1 functional - basic navigation works.
 
@@ -60,11 +60,11 @@
 
 **Independent Test**: Lesson page displays a syntax-highlighted code block and a live preview component in a resizable split view.
 
-- [ ] T013 [P] [US2] Implement `SyntaxHighlighter` component using Shiki in `src/components/SyntaxHighlighter.tsx`
-- [ ] T014 [US2] Create resizable `SplitView` component using `react-resizable-panels` in `src/components/SplitView.tsx`
-- [ ] T015 [US2] Implement dynamic preview component registry and loader in `src/components/lessons/index.ts`
-- [ ] T016 [US2] Create first preview component for a lesson in `src/components/lessons/RoutingExample.tsx`
-- [ ] T017 [US2] Assemble `SplitView`, `SyntaxHighlighter`, and preview component in `src/app/lessons/[section]/[lesson]/page.tsx`
+- [x] T013 [P] [US2] Implement `SyntaxHighlighter` component using Shiki in `src/components/SyntaxHighlighter.tsx`
+- [x] T014 [US2] Create resizable `SplitView` component using `react-resizable-panels` in `src/components/SplitView.tsx`
+- [x] T015 [US2] Implement dynamic preview component registry and loader in `src/components/lessons/index.ts`
+- [x] T016 [US2] Create first preview component for a lesson in `src/components/lessons/RoutingExample.tsx`
+- [x] T017 [US2] Assemble `SplitView`, `SyntaxHighlighter`, and preview component in `src/app/lessons/[section]/[lesson]/page.tsx`
 
 **Checkpoint**: User Story 2 functional - the core side-by-side experience is ready.
 
@@ -76,10 +76,10 @@
 
 **Independent Test**: Exercise section at the bottom of a lesson validates user input/action and displays feedback.
 
-- [ ] T018 [P] [US3] Create base `ExerciseSection` client component in `src/components/ExerciseSection.tsx`
-- [ ] T019 [US3] Implement validation logic using Zod schemas for different exercise types in `src/lib/exercise-validation.ts`
-- [ ] T020 [US3] Add interactive UI elements (inputs/buttons) to `ExerciseSection` based on lesson metadata
-- [ ] T021 [US3] Integrate `ExerciseSection` into the lesson page in `src/app/lessons/[section]/[lesson]/page.tsx`
+- [x] T018 [P] [US3] Create base `ExerciseSection` client component in `src/components/ExerciseSection.tsx`
+- [x] T019 [US3] Implement validation logic using Zod schemas for different exercise types in `src/lib/exercise-validation.ts`
+- [x] T020 [US3] Add interactive UI elements (inputs/buttons) to `ExerciseSection` based on lesson metadata
+- [x] T021 [US3] Integrate `ExerciseSection` into the lesson page in `src/app/lessons/[section]/[lesson]/page.tsx`
 
 **Checkpoint**: User Story 3 functional - interactive learning loop complete.
 
@@ -91,10 +91,10 @@
 
 **Independent Test**: Completing an exercise marks the lesson as done in the sidebar (persisted across refreshes).
 
-- [ ] T022 [P] [US4] Implement `useProgress` hook using `localStorage` in `src/hooks/useProgress.ts`
-- [ ] T023 [US4] Create Server Action to handle progress updates (mocking persistence) in `src/app/actions/progress.ts`
-- [ ] T024 [US4] Update `Sidebar` component to display completion checkmarks in `src/components/Sidebar.tsx`
-- [ ] T025 [US4] Trigger progress update upon successful exercise completion in `src/components/ExerciseSection.tsx`
+- [x] T022 [P] [US4] Implement `useProgress` hook using `localStorage` in `src/hooks/useProgress.ts`
+- [x] T023 [US4] Create Server Action to handle progress updates (mocking persistence) in `src/app/actions/progress.ts`
+- [x] T024 [US4] Update `Sidebar` component to display completion checkmarks in `src/components/Sidebar.tsx`
+- [x] T025 [US4] Trigger progress update upon successful exercise completion in `src/components/ExerciseSection.tsx`
 
 **Checkpoint**: User Story 4 functional - full learning journey tracked.
 
@@ -104,10 +104,10 @@
 
 **Purpose**: Visual refinements, mobile responsiveness, and performance.
 
-- [ ] T026 [P] Implement responsive "stacked" view for mobile screens in `src/components/SplitView.tsx`
-- [ ] T027 [P] Add glassmorphism and animations (Framer Motion) to UI in `src/components/ui/`
-- [ ] T028 Performance audit: Ensure lessons load under 500ms (SC-002)
-- [ ] T029 [P] Final Documentation update in `README.md` and `quickstart.md`
+- [x] T026 [P] Implement responsive "stacked" view for mobile screens in `src/components/SplitView.tsx`
+- [x] T027 [P] Add glassmorphism and animations (Framer Motion) to UI in `src/components/ui/`
+- [x] T028 Performance audit: Ensure lessons load under 500ms (SC-002)
+- [x] T029 [P] Final Documentation update in `README.md` and `quickstart.md`
 
 ---
 

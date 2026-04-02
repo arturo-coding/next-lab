@@ -1,0 +1,14 @@
+{
+  "id": "linking",
+  "sectionId": "routing",
+  "title": "Linking and Navigating",
+  "description": "Learn how to navigate between routes in Next.js using the Link component and the useRouter hook.",
+  "code": "import Link from 'next/link';\n\nexport default function Page() {\n  return (\n    <nav>\n      <Link href='/'>Home</Link>\n      <Link href='/about'>About</Link>\n    </nav>\n  );\n}",
+  "previewComponent": "RoutingExample",
+  "exercise": {
+    "type": "choice",
+    "prompt": "Which component is used for client-side navigation?",
+    "correctValue": "Link",
+    "hint": "It starts with L"
+  }
+}
