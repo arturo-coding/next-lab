@@ -14,6 +14,23 @@ interface PageProps {
   }>;
 }
 
+export async function generateStaticParams() {
+  const sections = await getSections();
+  const params: { section: string; lesson: string }[] = [];
+
+  for (const section of sections) {
+    const lessons = await getLessons(section.id);
+    for (const lesson of lessons) {
+      params.push({
+        section: section.id,
+        lesson: lesson.id,
+      });
+    }
+  }
+
+  return params;
+}
+
 export default async function LessonPage({ params }: PageProps) {
   const { section: sectionId, lesson: lessonId } = await params;
   const lesson = await getLesson(sectionId, lessonId);
