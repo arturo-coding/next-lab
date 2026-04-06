@@ -8,14 +8,27 @@ import { useProgressStore } from '@/lib/store';
 interface ExerciseSectionProps {
   exercise: Exercise;
   lessonId: string;
+  onProgressChange?: (hasProgress: boolean) => void;
+  onComplete?: () => void;
 }
 
-export default function ExerciseSection({ exercise, lessonId }: ExerciseSectionProps) {
+export default function ExerciseSection({ 
+  exercise, 
+  lessonId,
+  onProgressChange,
+  onComplete
+}: ExerciseSectionProps) {
   const [answer, setAnswer] = React.useState('');
   const [status, setStatus] = React.useState<'idle' | 'correct' | 'incorrect'>('idle');
   const [showHint, setShowHint] = React.useState(false);
   const completeLesson = useProgressStore((state) => state.completeLesson);
   const isCompleted = useProgressStore((state) => state.completedLessonIds.includes(lessonId));
+
+  const handleAnswerChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value;
+    setAnswer(val);
+    onProgressChange?.(val.length > 0);
+  };
 
   React.useEffect(() => {
     if (isCompleted) {
@@ -29,6 +42,11 @@ export default function ExerciseSection({ exercise, lessonId }: ExerciseSectionP
     if (answer.trim().toLowerCase() === exercise.correctValue.toString().toLowerCase()) {
       setStatus('correct');
       completeLesson(lessonId);
+      
+      // Notify completion after a short delay so user sees the success message
+      setTimeout(() => {
+        onComplete?.();
+      }, 1500);
     } else {
       setStatus('incorrect');
     }
@@ -54,7 +72,7 @@ export default function ExerciseSection({ exercise, lessonId }: ExerciseSectionP
         <input 
           type="text"
           value={answer}
-          onChange={(e) => setAnswer(e.target.value)}
+          onChange={handleAnswerChange}
           placeholder="Enter your answer..."
           disabled={isCompleted}
           className="flex-1 bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 transition-all disabled:opacity-50"

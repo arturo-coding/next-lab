@@ -3,8 +3,13 @@
 import * as React from 'react';
 import { Loader2 } from 'lucide-react';
 
+interface UserData {
+  name: string;
+  email: string;
+}
+
 export default function DataFetchingExample() {
-  const [data, setData] = React.useState<any>(null);
+  const [data, setData] = React.useState<UserData | null>(null);
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
@@ -29,9 +34,9 @@ export default function DataFetchingExample() {
       <h2 className="text-xl font-bold">Fetched Content</h2>
       <div className="p-4 bg-black/20 rounded border border-white/10 space-y-2">
         <p className="text-sm text-gray-500 uppercase font-bold tracking-tighter">Name</p>
-        <p className="text-lg text-white font-medium">{data.name}</p>
+        <p className="text-lg text-white font-medium">{data?.name}</p>
         <p className="text-sm text-gray-500 uppercase font-bold tracking-tighter mt-4">Email</p>
-        <p className="text-lg text-white font-medium">{data.email}</p>
+        <p className="text-lg text-white font-medium">{data?.email}</p>
       </div>
     </div>
   );
