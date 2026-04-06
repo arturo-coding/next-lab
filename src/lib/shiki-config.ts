@@ -1,6 +1,6 @@
-import { createHighlighter } from 'shiki';
+import { createHighlighter, type Highlighter } from 'shiki';
 
-let highlighter: any = null;
+let highlighter: Highlighter | null = null;
 
 export async function getHighlighterInstance() {
   if (highlighter) return highlighter;

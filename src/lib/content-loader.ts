@@ -9,7 +9,7 @@ export async function getSections(): Promise<Section[]> {
   try {
     const content = await fs.readFile(sectionsPath, 'utf-8');
     const data = JSON.parse(content);
-    return data.map((s: any) => SectionSchema.parse(s)).sort((a: any, b: any) => a.order - b.order);
+    return data.map((s: Section) => SectionSchema.parse(s)).sort((a: Section, b: Section) => a.order - b.order);
   } catch (error) {
     console.error('Error loading sections:', error);
     return [];

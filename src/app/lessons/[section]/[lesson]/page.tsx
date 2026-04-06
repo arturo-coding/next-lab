@@ -4,7 +4,6 @@ import Sidebar from '@/components/Sidebar';
 import SplitView from '@/components/SplitView';
 import SyntaxHighlighter from '@/components/SyntaxHighlighter';
 import { PREVIEW_COMPONENTS } from '@/components/lessons';
-import ExerciseSection from '@/components/ExerciseSection';
 import { type Lesson } from '@/lib/schemas';
 
 interface PageProps {
@@ -30,6 +29,8 @@ export async function generateStaticParams() {
 
   return params;
 }
+
+import LessonViewManager from '@/components/LessonViewManager';
 
 export default async function LessonPage({ params }: PageProps) {
   const { section: sectionId, lesson: lessonId } = await params;
@@ -58,24 +59,26 @@ export default async function LessonPage({ params }: PageProps) {
           <h1 className="text-lg font-medium text-white">{lesson.title}</h1>
         </header>
         
-        <div className="flex-1 overflow-y-auto p-8">
-          <div className="max-w-7xl mx-auto flex flex-col gap-8 h-full">
-            <div className="space-y-4 shrink-0">
-              <p className="text-gray-400 text-lg leading-relaxed">
-                {lesson.description}
-              </p>
-            </div>
-            
-            <div className="flex-1 min-h-[500px] flex flex-col gap-8 pb-12">
-              <SplitView 
-                left={<SyntaxHighlighter code={lesson.code} />}
-                right={<PreviewComponent />}
-              />
+        <LessonViewManager 
+          lessonContent={
+            <>
+              <div className="space-y-4 shrink-0">
+                <p className="text-gray-400 text-lg leading-relaxed">
+                  {lesson.description}
+                </p>
+              </div>
               
-              <ExerciseSection exercise={lesson.exercise} lessonId={lesson.id} />
-            </div>
-          </div>
-        </div>
+              <div className="flex-1 min-h-[500px] flex flex-col gap-8 pb-12">
+                <SplitView 
+                  left={<SyntaxHighlighter code={lesson.code} />}
+                  right={<PreviewComponent />}
+                />
+              </div>
+            </>
+          }
+          exercise={lesson.exercise}
+          lessonId={lesson.id}
+        />
       </main>
     </div>
   );
