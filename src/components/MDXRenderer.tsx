@@ -3,6 +3,24 @@ import { highlight } from "@/lib/shiki-config";
 
 // Custom components for MDX
 const components = {
+  AppOnly: ({ children }: { children: React.ReactNode }) => <>{children}</>,
+  PagesOnly: () => null,
+  Image: (props: any) => (
+    <div className="my-8 rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img {...props} className="w-full h-auto" alt={props.alt || "Documentation image"} />
+    </div>
+  ),
+  Check: ({ size = 18 }: { size?: number }) => (
+    <span style={{ width: size, height: size }} className="inline-block text-green-500">
+      <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+    </span>
+  ),
+  Cross: ({ size = 18 }: { size?: number }) => (
+    <span style={{ width: size, height: size }} className="inline-block text-red-500">
+      <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </span>
+  ),
   pre: async ({ children, ...props }: any) => {
     // Basic implementation to extract code and lang
     // This is a simplified version for MVP
