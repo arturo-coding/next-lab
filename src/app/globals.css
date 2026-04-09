@@ -1,22 +1,35 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --background: #ffffff;
+  --foreground: #09090b;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #09090b;
+    --foreground: #fafafa;
+  }
 }
 
 body {
-  color: var(--foreground);
   background: var(--background);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
-@layer components {
-  .glass {
-    @apply bg-white bg-opacity-[0.05] backdrop-blur-md border border-white border-opacity-10;
-  }
+/* Custom MDX styles if needed */
+.mdx-content {
+  @apply prose prose-zinc dark:prose-invert max-w-none;
+}
+
+.mdx-content pre {
+  @apply !bg-transparent !p-0 !m-0;
 }

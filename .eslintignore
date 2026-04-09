@@ -1,9 +1,0 @@
-node_modules/
-.next/
-out/
-build/
-coverage/
-next.config.ts
-postcss.config.mjs
-tailwind.config.ts
-public/
