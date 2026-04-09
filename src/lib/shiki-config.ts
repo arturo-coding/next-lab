@@ -1,22 +1,22 @@
-import { createHighlighter, type Highlighter } from 'shiki';
+import { createHighlighter, Highlighter } from "shiki";
 
 let highlighter: Highlighter | null = null;
 
-export async function getHighlighterInstance() {
+export async function getHighlighter() {
   if (highlighter) return highlighter;
   
   highlighter = await createHighlighter({
-    themes: ['github-dark'],
-    langs: ['typescript', 'tsx', 'javascript', 'jsx', 'css', 'json']
+    themes: ["github-dark", "github-light"],
+    langs: ["typescript", "javascript", "bash", "json", "tsx", "jsx", "markdown", "mdx", "css"],
   });
   
   return highlighter;
 }
 
-export async function highlightCode(code: string, lang: string = 'tsx') {
-  const h = await getHighlighterInstance();
-  return h.codeToHtml(code, {
+export async function highlight(code: string, lang: string, theme: string = "github-dark") {
+  const hl = await getHighlighter();
+  return hl.codeToHtml(code, {
     lang,
-    theme: 'github-dark'
+    theme,
   });
 }
