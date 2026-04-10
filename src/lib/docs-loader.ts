@@ -62,7 +62,10 @@ export async function getAllLessonSlugs(): Promise<string[][]> {
       } else if (file.endsWith(".md") || file.endsWith(".mdx")) {
         const name = file.replace(/\.mdx?$/, "");
         if (name === "index") {
-          slugs.push(currentSlug);
+          // Skip the very root if it's empty to avoid mismatch with [[...slug]]
+          if (currentSlug.length > 0) {
+            slugs.push(currentSlug);
+          }
         } else {
           slugs.push([...currentSlug, name]);
         }
