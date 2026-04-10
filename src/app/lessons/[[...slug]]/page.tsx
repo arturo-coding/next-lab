@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getLessonBySlug, getAllLessonSlugs } from "@/lib/docs-loader";
+import { getLessonBySlug, getAllLessonSlugs, getFirstLesson } from "@/lib/docs-loader";
 import LessonView from "@/components/LessonView";
 
 export async function generateStaticParams() {
@@ -12,10 +12,16 @@ export async function generateStaticParams() {
 export default async function LessonPage({
   params,
 }: {
-  params: Promise<{ slug: string[] }>;
+  params: Promise<{ slug?: string[] }>;
 }) {
   const { slug } = await params;
-  const lesson = await getLessonBySlug(slug);
+  
+  let lesson;
+  if (!slug || slug.length === 0) {
+    lesson = await getFirstLesson();
+  } else {
+    lesson = await getLessonBySlug(slug);
+  }
 
   if (!lesson) {
     notFound();
